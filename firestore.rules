@@ -1,0 +1,83 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Development mode - open all rules
+    // WARNING: Do not use these rules in production!
+    match /{document=**} {
+      allow read, write: if true;
+    }
+    
+    // Keep the original rules commented out for reference
+    // and easy restoration when moving to production
+    
+    /* Original rules - uncomment for production
+    // Base rules
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // User document rules
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+
+      // Phone verification subcollection
+      match /phoneVerification/{document} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Email logs subcollection
+      match /emailLogs/{document} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // SMS logs subcollection
+      match /smsLogs/{document} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Allow reading user profiles
+      match /profile/{profileId} {
+        allow read: if request.auth != null;
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // Questions collection
+    match /questions/{questionId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && (
+        resource.data.creatorId == request.auth.uid || 
+        resource.data.userId == request.auth.uid
+      );
+    }
+
+    // Transfers collection
+    match /transfers/{transferId} {
+      allow read: if request.auth != null && (
+        resource.data.creatorId == request.auth.uid
+      );
+      allow create: if request.auth != null;
+    }
+
+    // Notifications collection
+    match /notifications/{notificationId} {
+      allow read: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+    }
+
+    // User notifications collection
+    match /user_notifications/{notificationId} {
+      allow read: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+    }
+    */
+  }
+} 

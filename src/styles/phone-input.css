@@ -1,0 +1,53 @@
+.PhoneInput {
+  /* Container styles */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.PhoneInputCountry {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.PhoneInputCountryIcon {
+  width: 1.5rem;
+  height: 1rem;
+  border-radius: 2px;
+}
+
+.PhoneInputCountrySelect {
+  background-color: transparent;
+  border: none;
+  color: #F3F4F6;
+  padding: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.PhoneInputCountrySelect:focus {
+  outline: none;
+}
+
+.PhoneInputCountrySelect option {
+  background-color: #1F2937;
+  color: #F3F4F6;
+}
+
+.PhoneInputInput {
+  background-color: transparent;
+  border: none;
+  color: #F3F4F6;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.PhoneInputInput:focus {
+  outline: none;
+}
+
+.PhoneInputInput::placeholder {
+  color: #9CA3AF;
+} 
